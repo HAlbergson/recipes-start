@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import Home from "./Home";
 import "./App.css";
 import Contact from "./Contact";
+import RecipesLayout from "./recipes/RecipesLayout";
 
 
 export default function App() {
@@ -18,10 +19,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories/" element={<Categories />} />
-        <Route path="/recipes">
+        <Route path="/recipes" element={<RecipesLayout/>}>
           <Route index element={<Recipes />} />
           <Route path=":id" element={<Recipe />} />
         </Route>
+        <Route path="*" element={<h2>Not Found</h2>} />
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
